@@ -1,0 +1,348 @@
+@import "node_modules/ol/ol.css";
+
+html, body {
+  margin: 0;
+  height: 100%;
+  transition: 1s ease;
+}
+#map {
+  /* position: absolute;
+  top: 0;
+  bottom: 0; */
+  width: 100%;
+  height:100%;
+  z-index: -1;
+}
+
+#searchBox {
+  position:absolute;
+  top:12px;
+  left:68px;
+  width:300px;
+  height:40px;
+  background-color: transparent;
+  z-index: 1;
+}
+#searchBox .input-group {
+  padding:5px;
+  width:315px;
+}
+#searchBox span {
+  position: relative;
+  padding:2px;
+  left:-25px;
+  color: #c8ccd1
+}
+#geoCodingInpt {
+  border-radius:6px;
+}
+
+#logoWebgis {
+  height:50px;
+  padding-left:8px;
+  padding-top:10px;
+}
+
+#menuBar {
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:60px;
+  background-color: #0F4069;
+  z-index: 1;
+}
+
+.btn-bhmenu {
+  color: #ffffff;
+  background-color: #0b2c47;
+  font-size: 18px;
+  border-color: #003D4F;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  margin-left:7px;
+  margin-top: 12px;
+  height: 40px;
+}
+
+.btn-bhmenu:hover,
+.btn-bhmenu:active,
+.btn-bhmenu:focus {
+  background: #0f3a5d;
+  color: #fac12f;
+  border-color: #003D4F;
+}
+
+.tooltip-inner {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 1px rgb(204, 204, 204);
+  opacity: 1 !important;
+  position: relative;
+  left: 1px; 
+  color:#0b3456;
+  font-size: 13px;
+  font-weight: bold;
+}
+.tooltip.bs-tooltip-end .tooltip-arrow::before {
+  border-right-color: #ffffff;
+  border-width: 7px;
+}
+
+/* Sidebar Controller */
+#sideBar {
+  position:absolute;
+  top: 0px;
+  right: 0px;
+  height:100%;
+  width:320px;
+  background-color: #ffffff;
+  z-index: 1;
+  transition: 0.3s ease;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.btn-showhide {
+  color: #ffffff;
+  background-color: #0f4069;
+  font-size: 18px;
+  border-color: #003D4F;
+  border-radius: 2px;
+  height: 35px;
+  position: absolute;
+  left: -40px;
+  top: 12px;
+}
+
+.btn-showhide:hover {
+  background: #003D4F;
+  color: #fac12f;
+  border-color: #003D4F;
+}
+
+/* Map Controller */
+/* Zoom */
+.btn-zoom {
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 12px;
+  border-color: #003D4F;
+  border-radius: 2px;
+  height: 30px;
+  position: absolute;
+  left: -37px;
+}
+.btn-zoom:hover {
+  background: #e2e2e2;
+  border-color: #003D4F;
+}
+#zoomInBtn {
+  top: 55px;
+}
+#zoomOutBtn {
+  top: 88px;
+}
+
+/* FullScreen */
+.btn-fullscreen {
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 9px;
+  border-color: #003D4F;
+  border-radius: 2px;
+  height: 30px;
+  position: absolute;
+  left: -37px;
+}
+.btn-fullscreen:hover {
+  background: #e2e2e2;
+  border-color: #003D4F;
+}
+#fullScreenBtn {
+  top: 121px;
+}
+
+/* Geolocation */
+.btn-geoloc {
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 12px;
+  border-color: #003D4F;
+  border-radius: 80px;
+  height: 29px;
+  position: absolute;
+  left: -38px;
+}
+.btn-geoloc:hover {
+  background: #e2e2e2;
+  border-color: #003D4F;
+}
+#geoLocationBtn {
+  top: 154px;
+}
+
+/* webgis Controller */
+#webgisController {
+  margin: 3px;
+  height: 99%;
+}
+/* Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #dadada; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #003D4F; 
+}
+
+/* Box Control */
+.box-control.accordion-item {
+  font-size: 13px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  margin-bottom: 2px;
+}
+.box-control button {
+  font-size: 14px;
+  font-weight: bold;
+  color: #003D4F;
+  padding-left: 12px;
+  padding-right: 20px;
+  border-radius: 0px;
+}
+.box-control span {
+  margin-left: 5px;
+}
+.box-control .accordion-button {
+  background-color: #f6f6f6;
+}
+.box-control .accordion-button:not(.collapsed) {
+  color: #003D4F;
+  background-color: #f1f1f1;
+}
+
+/* Layer Control */
+.btn-addata {
+  color: #ffffff;
+  background-color: #165080;
+  font-size: 14px;
+  border-color: #003D4F;
+  letter-spacing: 0.059em;
+  border-radius: 2px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.btn-addata:hover,
+.btn-addata:active,
+.btn-addata:focus {
+  background: #0b2c47;
+  color: #fac12f;
+  border-color: #003D4F;
+}
+
+#addLayer {
+  width: 200px;
+}
+#uploadLayer {
+  float: right;
+}
+
+#layerController-content {
+  max-height: 340px;
+  overflow: auto;
+}
+
+/* Search NIB */
+input::-webkit-input-placeholder, .form-select {
+  font-size: 11px;
+  line-height: 3;
+}
+.search-nib-label {
+  font-size: 12px;
+}
+.search-nib {
+  padding-left: 0px;
+  margin-bottom: 4px;
+}
+#isHguHpl {
+  height: 20px;
+  width: 40px;
+}
+
+/* Tool Box & Map Info */
+#toolBox {
+  position:absolute;
+  bottom: 50px;
+  right: 0px;
+  height:75px;
+  width:320px;
+  background-color: #ffffff;
+  z-index: 1;
+}
+.btn-toolbox {
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 14px;
+  border-radius: 2px;
+  padding-left: 11px;
+  padding-right: 11px;
+  margin-left: 3px;
+  margin-top: 4px;
+}
+.btn-toolbox:hover {
+  background: #0f4069;
+  border-color: #ddb136;
+  color: #ddb136;
+}
+#mapInfo {
+  position:absolute;
+  bottom: 1px;
+  right: 0px;
+  height:50px;
+  width:320px;
+  background-color: #0f4069;
+  z-index: 1;
+}
+#mapInfo span {
+  color: #ffffff;
+  font-size: 11px;
+}
+#mapInfo .row {
+  margin-top: -1px;
+}
+#setCRSBtn {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 5px;
+  right: 3px;
+  width: 310px;
+  border-color: rgb(189, 189, 189);
+}
+
+/* Scale Line */
+.scale-line {
+  position: absolute;
+  left: 62px;
+  bottom: 3px;
+  color: #ffffff;
+  font-size: 10px;
+  background: #0f416986;
+  padding: 2px;
+  border: 1px solid #0f4169;
+  border-top: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  text-align: center;
+  margin: 1px;
+  will-change: contents, width;
+  transition: all 0.25s;
+}
